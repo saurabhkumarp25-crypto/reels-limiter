@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.reelslimiter.app-mergeDebugResources-20:/values-large-v4/values-large-v4.xml",
+            "outputFile": "com.example.reelslimiter.app-mergeDebugResources-28:/values-large-v4/values-large-v4.xml",
             "map": [
+                {
+                    "source": "/home/codespace/.gradle/caches/9.4.1/transforms/67e40f51f0d62f1cc4f2a6eeb2dcaed5/transformed/material-1.12.0/res/values-large-v4/values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,169,285,407",
+                        "endColumns": "113,115,121,133",
+                        "endOffsets": "164,280,402,536"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,14",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "752,866,982,1104",
+                        "endColumns": "113,115,121,133",
+                        "endOffsets": "861,977,1099,1233"
+                    }
+                },
                 {
                     "source": "/home/codespace/.gradle/caches/9.4.1/transforms/5dde65f78953264824fb328f337142ba/transformed/appcompat-1.7.0/res/values-large-v4/values-large-v4.xml",
                     "from": {

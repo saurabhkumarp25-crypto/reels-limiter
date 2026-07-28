@@ -8,6 +8,8 @@
         android:minSdkVersion="26"
         android:targetSdkVersion="34" />
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <permission
         android:name="com.example.reelslimiter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
@@ -19,7 +21,7 @@
         android:debuggable="true"
         android:extractNativeLibs="false"
         android:label="Reels Limiter"
-        android:theme="@style/Theme.AppCompat" >
+        android:theme="@style/Theme.ReelsLimiter" >
         <activity
             android:name="com.example.reelslimiter.MainActivity"
             android:exported="true" >
@@ -29,6 +31,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name="com.example.reelslimiter.ReelAccessibilityService"
+            android:exported="false"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice.accessibility_service_config"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
 
         <provider
             android:name="androidx.startup.InitializationProvider"

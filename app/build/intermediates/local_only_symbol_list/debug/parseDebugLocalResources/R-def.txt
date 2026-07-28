@@ -1,5 +1,21 @@
 R_DEF: Internal format may change without notice
 local
-id helloText
+color background_dark
+color danger
+color primary
+color primary_variant
+color success
+color surface_dark
+color text_primary
+color text_secondary
+id countText
+id enableServiceButton
+id limitInput
+id limitText
+id progressRing
+id saveButton
+id statusText
 layout activity_main
 string app_name
+style Theme.ReelsLimiter
+xml accessibility_service_config

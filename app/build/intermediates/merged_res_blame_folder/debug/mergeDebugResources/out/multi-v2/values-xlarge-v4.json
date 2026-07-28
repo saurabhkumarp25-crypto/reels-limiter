@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.reelslimiter.app-mergeDebugResources-20:/values-xlarge-v4/values-xlarge-v4.xml",
+            "outputFile": "com.example.reelslimiter.app-mergeDebugResources-28:/values-xlarge-v4/values-xlarge-v4.xml",
             "map": [
                 {
                     "source": "/home/codespace/.gradle/caches/9.4.1/transforms/5dde65f78953264824fb328f337142ba/transformed/appcompat-1.7.0/res/values-xlarge-v4/values-xlarge-v4.xml",

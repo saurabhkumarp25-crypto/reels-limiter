@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.reelslimiter.app-mergeDebugResources-20:/values-pt/values-pt.xml",
+            "outputFile": "com.example.reelslimiter.app-mergeDebugResources-28:/values-pt/values-pt.xml",
             "map": [
                 {
                     "source": "/home/codespace/.gradle/caches/9.4.1/transforms/5f95f5fd1e8e4b27f30a282dc70224c4/transformed/core-1.13.1/res/values-pt/values-pt.xml",

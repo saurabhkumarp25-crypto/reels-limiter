@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.reelslimiter.app-mergeDebugResources-20:/values-en-rXC/values-en-rXC.xml",
+            "outputFile": "com.example.reelslimiter.app-mergeDebugResources-28:/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
                     "source": "/home/codespace/.gradle/caches/9.4.1/transforms/5dde65f78953264824fb328f337142ba/transformed/appcompat-1.7.0/res/values-en-rXC/values-en-rXC.xml",
