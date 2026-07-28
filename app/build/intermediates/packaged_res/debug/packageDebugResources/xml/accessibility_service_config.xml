@@ -2,5 +2,5 @@
     android:accessibilityEventTypes="typeWindowStateChanged|typeWindowContentChanged|typeViewScrolled"
     android:accessibilityFeedbackType="feedbackGeneric"
     android:notificationTimeout="100"
-    android:packageNames="com.instagram.android"
     android:canRetrieveWindowContent="true" />
+    
