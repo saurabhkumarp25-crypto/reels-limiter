@@ -1,0 +1,4 @@
+com.example.reelslimiter
+id helloText
+layout activity_main
+string app_name
