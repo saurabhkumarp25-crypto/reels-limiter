@@ -10,6 +10,8 @@ import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.button.MaterialButton
 import android.widget.TextView
+import android.os.Handler
+import android.os.Looper
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +22,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var saveButton: MaterialButton
     private lateinit var enableServiceButton: MaterialButton
     private lateinit var statusText: TextView
+    private lateinit var debugLogText: TextView
+
+    private val handler = Handler(Looper.getMainLooper())
+    private val refreshRunnable = object : Runnable {
+        override fun run() {
+            refreshUI()
+            handler.postDelayed(this, 1000)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         saveButton = findViewById(R.id.saveButton)
         enableServiceButton = findViewById(R.id.enableServiceButton)
         statusText = findViewById(R.id.statusText)
+        debugLogText = findViewById(R.id.debugLogText)
 
         saveButton.setOnClickListener {
             val text = limitInput.text.toString()
@@ -49,7 +61,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        refreshUI()
+        handler.post(refreshRunnable)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        handler.removeCallbacks(refreshRunnable)
     }
 
     private fun refreshUI() {
@@ -58,7 +75,9 @@ class MainActivity : AppCompatActivity() {
 
         countText.text = count.toString()
         limitText.text = "of $limit reels"
-        limitInput.setText(limit.toString())
+        if (!limitInput.isFocused) {
+            limitInput.setText(limit.toString())
+        }
 
         progressRing.max = limit
         progressRing.progress = if (count > limit) limit else count
@@ -68,6 +87,8 @@ class MainActivity : AppCompatActivity() {
         statusText.setTextColor(
             ContextCompat.getColor(this, if (enabled) R.color.success else R.color.danger)
         )
+
+        debugLogText.text = AppState.getDebugLog(this)
     }
 
     private fun isAccessibilityServiceEnabled(): Boolean {
@@ -87,4 +108,3 @@ class MainActivity : AppCompatActivity() {
         return false
     }
 }
-

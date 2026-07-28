@@ -10,6 +10,7 @@ object AppState {
     private const val KEY_COUNT = "today_count"
     private const val KEY_DATE = "today_date"
     private const val KEY_LIMIT = "daily_limit"
+    private const val KEY_DEBUG_LOG = "debug_log"
 
     private fun todayString(): String {
         val fmt = SimpleDateFormat("yyyy-MM-dd", Locale.US)
@@ -52,5 +53,19 @@ object AppState {
 
     fun isLimitReached(context: Context): Boolean {
         return getCount(context) >= getLimit(context)
+    }
+
+    fun logDebug(context: Context, message: String) {
+        val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val existing = prefs.getString(KEY_DEBUG_LOG, "") ?: ""
+        val lines = existing.split("\n").filter { it.isNotBlank() }.toMutableList()
+        lines.add(0, message)
+        val trimmed = lines.take(15)
+        prefs.edit().putString(KEY_DEBUG_LOG, trimmed.joinToString("\n")).apply()
+    }
+
+    fun getDebugLog(context: Context): String {
+        val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        return prefs.getString(KEY_DEBUG_LOG, "No events yet") ?: "No events yet"
     }
 }
