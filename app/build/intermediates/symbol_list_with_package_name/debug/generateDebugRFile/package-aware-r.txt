@@ -8,6 +8,7 @@ color surface_dark
 color text_primary
 color text_secondary
 id countText
+id debugLogText
 id enableServiceButton
 id limitInput
 id limitText

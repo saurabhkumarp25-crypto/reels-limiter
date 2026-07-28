@@ -7,6 +7,7 @@ int color surface_dark 0x0
 int color text_primary 0x0
 int color text_secondary 0x0
 int id countText 0x0
+int id debugLogText 0x0
 int id enableServiceButton 0x0
 int id limitInput 0x0
 int id limitText 0x0

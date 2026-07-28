@@ -7,13 +7,12 @@ class ReelAccessibilityService : AccessibilityService() {
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         if (event == null) return
-        if (event.packageName?.toString() != "com.instagram.android") return
 
+        val pkg = event.packageName?.toString() ?: "unknown"
         val typeString = AccessibilityEvent.eventTypeToString(event.eventType)
-        val className = event.className?.toString() ?: "unknown"
-        AppState.logDebug(applicationContext, "$typeString | $className")
+        AppState.logDebug(applicationContext, "$pkg | $typeString")
 
-        if (event.eventType == AccessibilityEvent.TYPE_VIEW_SCROLLED) {
+        if (pkg == "com.instagram.android" && event.eventType == AccessibilityEvent.TYPE_VIEW_SCROLLED) {
             if (!AppState.isLimitReached(applicationContext)) {
                 AppState.incrementCount(applicationContext)
             }
